@@ -8,8 +8,8 @@
 
 --------------------------
 
-.. image:: https://badge.fury.io/py/datastore.png
-    :target: http://badge.fury.io/py/datastore
+.. image:: https://badge.fury.io/py/bsec_datastore.png
+    :target: http://badge.fury.io/py/bsec_datastore
 
 .. image:: https://travis-ci.org/yngtodd/datastore.png?branch=master
     :target: https://travis-ci.org/yngtodd/datastore
