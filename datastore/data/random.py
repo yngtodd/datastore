@@ -6,7 +6,8 @@ from datastore.api import InMemoryDataset
 class RandomData(InMemoryDataset):
     """ Random dataset - Useful for quick iterating """
 
-    def __init__(self, num_samples: int, num_classes: int):
+    def __init__(self, num_samples: int, num_classes: int, seed: int=13):
+        np.random.seed(seed)
         self.data = np.random.randn(num_samples)
         self.labels = np.random.randint(num_classes, size=num_samples)
 
