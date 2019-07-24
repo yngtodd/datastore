@@ -4,7 +4,7 @@ from sklearn.model_selection import StratifiedKFold
 from datastore.api.data import Subset
 
 
-def stratified_split(dataset, num_splits):
+def stratified_split(dataset, num_splits, seed=42):
     """ Create stratified k-fold splits
 
     Parameters
@@ -12,6 +12,10 @@ def stratified_split(dataset, num_splits):
     dataset : datastore.dataset
 
     num_splits : int
+        Number of splits of the data (usually denoted by `k` folds)
+
+    seed : int
+        Random seed to control the splits
 
     Returns
     -------
