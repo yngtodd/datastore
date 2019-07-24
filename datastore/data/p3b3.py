@@ -2,7 +2,7 @@ import os
 import numpy as np
 from hammer.data.utils import download_url, makedir_exist_ok
 
-from datastore.api import Dataset
+from datastore.api import InMemoryDataset
 
 
 class P3B3(InMemoryDataset):

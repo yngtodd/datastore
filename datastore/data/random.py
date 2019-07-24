@@ -1,9 +1,9 @@
 import numpy as np
 
-from datastore.api import Dataset
+from datastore.api import InMemoryDataset
 
 
-class RandomData(Dataset):
+class RandomData(InMemoryDataset):
     """ Random dataset - Useful for quick iterating """
 
     def __init__(self, num_samples: int, num_classes: int):
