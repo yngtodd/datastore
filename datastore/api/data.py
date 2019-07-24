@@ -38,6 +38,13 @@ class Dataset:
             yield item
 
 
+class InMemoryDataset(Dataset):
+    """ Abstract class for in memory data """
+
+    def load_data(self):
+        raise NotImplementedError
+
+
 class Subset(Dataset):
     """Subset of a dataset at specified indices.
 

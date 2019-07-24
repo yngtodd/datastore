@@ -5,7 +5,7 @@ from hammer.data.utils import download_url, makedir_exist_ok
 from datastore.api import Dataset
 
 
-class P3B3(Dataset):
+class P3B3(InMemoryDataset):
     """P3B3 Synthetic Dataset.
 
     Parameters
