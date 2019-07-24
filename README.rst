@@ -19,7 +19,7 @@
 DataStore
 =============================
 
-Data store for Bthe BSEC Pilot 3 program.
+Data store for the BSEC Pilot 3 program.
 
 Documentation
 --------------
