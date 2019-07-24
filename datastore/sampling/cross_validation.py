@@ -22,7 +22,7 @@ def stratified_split(dataset, num_splits, seed=42):
     splits : list(namedtuple<Subset, Subset>)
         stratified splits of the data
     """
-    skf = StratifiedKFold(n_splits=num_splits)
+    skf = StratifiedKFold(n_splits=num_splits, random_state=seed)
     data, labels = dataset.load_data()
 
     splits = []
