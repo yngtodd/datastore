@@ -3,15 +3,15 @@ from abc import abstractmethod
 
 class Dataset:
     """ Abstract dataset - Used for both Keras and Pytorch"""
-        
+
     @abstractmethod
     def __getitem__(self, idx):
         """Gets batch at position `index`.
-        
+
         Parameters
         ----------
             idx: index position of the batch in the data.
-            
+
         Returns
         -------
             A batch
@@ -21,7 +21,7 @@ class Dataset:
     @abstractmethod
     def __len__(self):
         """Length of the dataset.
-        
+
         Returns
         -------
             The number of samples in the data.
@@ -36,3 +36,23 @@ class Dataset:
         """Create a generator that iterates over the data."""
         for item in (self[i] for i in range(len(self))):
             yield item
+
+
+class Subset(Dataset):
+    """Subset of a dataset at specified indices.
+
+    Parameters
+    ----------
+        dataset (Dataset): The whole Dataset
+
+        indices (sequence): Indices in the whole set selected for subset
+    """
+    def __init__(self, dataset, indices):
+        self.dataset = dataset
+        self.indices = indices
+
+    def __getitem__(self, idx):
+        return self.dataset[self.indices[idx]]
+
+    def __len__(self):
+        return len(self.indices)
