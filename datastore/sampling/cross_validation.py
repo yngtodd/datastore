@@ -1,5 +1,6 @@
 from collections import namedtuple
 from sklearn.model_selection import StratifiedKFold
+
 from datastore.api.data import Subset
 
 
@@ -14,7 +15,7 @@ def stratified_split(dataset, num_splits):
 
     Returns
     -------
-    splits : list(namedtuples<subset, subset>)
+    splits : list(namedtuple<Subset, Subset>)
         stratified splits of the data
     """
     skf = StratifiedKFold(n_splits=num_splits)
