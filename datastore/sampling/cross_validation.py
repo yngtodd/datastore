@@ -4,7 +4,7 @@ from sklearn.model_selection import StratifiedKFold
 from datastore.api.data import Subset
 
 
-def stratified_split(dataset, num_splits, seed=42):
+def stratified_split(dataset, num_splits, label=None, seed=42):
     """ Create stratified k-fold splits
 
     Parameters
@@ -24,6 +24,9 @@ def stratified_split(dataset, num_splits, seed=42):
     """
     skf = StratifiedKFold(n_splits=num_splits, random_state=seed)
     data, labels = dataset.load_data()
+
+    if label:
+        labels = labels[label]
 
     splits = []
     Split = namedtuple('Split', 'train valid')
