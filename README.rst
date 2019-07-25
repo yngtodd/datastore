@@ -50,4 +50,4 @@ Once you have a copy of the source, you can install it with:
     python setup.py install
 
 .. _tarball: https://github.com/yngtodd/datastore/tarball/master
-.. _documentation: https://datastore.readthedocs.io/en/latest
+.. _documentation: https://bsec-datastore.readthedocs.io/en/latest/
