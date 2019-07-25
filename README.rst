@@ -19,7 +19,7 @@
 DataStore
 =============================
 
-Data store for the BSEC Pilot 3 program.
+Data store for the BSEC Pilot 3 program. The library defines a structure of loading and subsetting data that works with Pytorch, Tensorflow, and Keras libraries.
 
 Documentation
 --------------
