@@ -7,3 +7,10 @@ History
 ++++++++++++++++++
 
 * First release on PyPI.
+
+0.2.0 (2019-25-07)
+++++++++++++++++++
+
+* Support for multitask datasets
+  * Adds meta and abstract classes for multitask data
+  * Adds stratified cross-validation method for multitask data
