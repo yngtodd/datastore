@@ -1,3 +1,3 @@
 from .data import (
-    Dataset, InMemoryDataset
+    Dataset, InMemoryDataset, MultiTaskDataset
 )

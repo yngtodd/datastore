@@ -42,7 +42,26 @@ class InMemoryDataset(Dataset):
     """ Abstract class for in memory data """
 
     def load_data(self):
+        """ Load data and labels """
         raise NotImplementedError
+
+
+class MultiTaskMeta(type):
+    """ Metaclass for Multitask Datasets """
+
+    def __init__(cls, name, bases, dct):
+        cls.labels = {}
+
+
+class MultiTaskDataset(Dataset, metaclass=MultiTaskMeta):
+    """ Abstract class for multitask datasets """
+
+    def get_tasks(self):
+        return self.labels.keys()
+
+    def index_labels(self, idx):
+        """ Index into the labels """
+        return {key: value[idx] for key, value in self.labels.items()}
 
 
 class Subset(Dataset):
