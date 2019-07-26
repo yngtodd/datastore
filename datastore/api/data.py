@@ -1,5 +1,7 @@
 from abc import abstractmethod
 
+import pandas as pd
+
 
 class Dataset:
     """ Abstract dataset - Used for both Keras and Pytorch"""
@@ -44,6 +46,20 @@ class InMemoryDataset(Dataset):
     def load_data(self):
         """ Load data and labels """
         raise NotImplementedError
+
+    def dataframe(self):
+        """ Load the data as a pd.DataFrame """
+        data, labels = self.load_data()
+
+        if isinstance(labels, dict):
+            # We are in the multitask case
+            data_dict = {'data': data}
+            for key, value in labels.items():
+                data_dict[key] = value
+        else:
+            data_dict = {'data': data, 'labels': labels}
+        
+        return pd.DataFrame(data_dict)
 
 
 class MultiTaskMeta(type):
