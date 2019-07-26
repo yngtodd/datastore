@@ -7,7 +7,7 @@ from sklearn.utils import resample
 from datastore.api.data import Subset
 
 
-def bootstrap(dataset, num_bootstraps, prop_train=0.5, seed=13):
+def leave_one_out_bootstrap(dataset, num_bootstraps, prop_train=0.5, seed=13):
     """ Create bootstrap samples 
 
     Parameters
@@ -28,7 +28,7 @@ def bootstrap(dataset, num_bootstraps, prop_train=0.5, seed=13):
     samples : list(namedtuple<Subset, Subset>)
         bootstrap samples of the data
     """
-    BootstrapSample = namedtuple('BootstrapSample', 'train valid')
+    BootstrapSample = namedtuple('BootstrapSample', 'train test')
     # Lean towards a slightly larger training set
     n_samples = math.ceil(len(dataset) * prop_train)
     data_idx = [x for x in range(len(dataset))]
@@ -37,11 +37,11 @@ def bootstrap(dataset, num_bootstraps, prop_train=0.5, seed=13):
     for i in range(num_bootstraps):
         train_idx = resample(data_idx, n_samples=n_samples)
         # Get dataset indices not included in training sample 
-        valid_idx = np.setdiff1d(data_idx, train_idx)
+        test_idx = np.setdiff1d(data_idx, train_idx)
 
         sample = BootstrapSample(
             train = Subset(dataset, train_idx),
-            valid = Subset(dataset, valid_idx)
+            test = Subset(dataset, test_idx)
         )
 
         samples.append(sample)
