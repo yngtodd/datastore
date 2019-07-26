@@ -75,6 +75,12 @@ class MultiTaskDataset(Dataset, metaclass=MultiTaskMeta):
     def get_tasks(self):
         return self.labels.keys()
 
+    def get_label(self, label):
+        return self.labels[label]
+
+    def del_label(self, label):
+        del self.labels[label]
+
     def index_labels(self, idx):
         """ Index into the labels """
         return {key: value[idx] for key, value in self.labels.items()}
