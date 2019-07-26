@@ -12,11 +12,11 @@ class Dataset:
 
         Parameters
         ----------
-            idx: index position of the batch in the data.
+        idx: index position of the batch in the data.
 
         Returns
         -------
-            A batch
+        A batch
         """
         raise NotImplementedError
 
@@ -26,7 +26,7 @@ class Dataset:
 
         Returns
         -------
-            The number of samples in the data.
+        The number of samples in the data.
         """
         raise NotImplementedError
 
@@ -91,9 +91,9 @@ class Subset(Dataset):
 
     Parameters
     ----------
-        dataset (Dataset): The whole Dataset
+    dataset (Dataset): The whole Dataset
 
-        indices (sequence): Indices in the whole set selected for subset
+    indices (sequence): Indices in the whole set selected for subset
     """
     def __init__(self, dataset, indices):
         self.dataset = dataset
