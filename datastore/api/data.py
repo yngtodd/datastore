@@ -106,4 +106,4 @@ class Subset(InMemoryDataset):
         return len(self.indices)
 
     def load_data(self):
-        return self.dataset.load_data()
+        return self.dataset[self.indices]
