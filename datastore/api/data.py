@@ -58,7 +58,7 @@ class InMemoryDataset(Dataset):
                 data_dict[key] = value
         else:
             data_dict = {'data': data, 'labels': labels}
-        
+
         return pd.DataFrame(data_dict)
 
 
@@ -86,7 +86,7 @@ class MultiTaskDataset(Dataset, metaclass=MultiTaskMeta):
         return {key: value[idx] for key, value in self.labels.items()}
 
 
-class Subset(Dataset):
+class Subset(InMemoryDataset):
     """Subset of a dataset at specified indices.
 
     Parameters
@@ -104,3 +104,6 @@ class Subset(Dataset):
 
     def __len__(self):
         return len(self.indices)
+
+    def load_data(self):
+        return self.dataset.load_data()
