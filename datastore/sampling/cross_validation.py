@@ -50,7 +50,7 @@ def multitask_stratified_split(dataset, num_splits, label, seed=42):
         Number of splits of the data (usually denoted by `k` folds)
 
     label : str
-        Key to the labels dictionary. Determines which label to 
+        Key to the labels dictionary. Determines which label to
         stratify on.
 
     seed : int
