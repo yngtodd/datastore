@@ -15,15 +15,6 @@ class RandomData(InMemoryDataset):
     def load_data(self):
         return self.data, self.labels
 
-    def to_csv(self, path):
-        frame = self.dataframe()
-        frame.to_csv(path, index=False)
-    
-    def load_cached(self, path):
-        frame = pd.read_csv(path)
-        self.data = frame['data']
-        self.labels = frame['labels']
-
     def __repr__(self):
         return f'Random supervised dataset'
 

@@ -61,6 +61,21 @@ class InMemoryDataset(Dataset):
 
         return pd.DataFrame(data_dict)
 
+    def to_csv(self, path):
+        " Save the data to disk "
+        self.dataframe().to_csv(path, index=False)
+
+    def load_cached(self, path):
+        " Load the data from disk "
+        frame = pd.read_csv(path)
+
+        self.data = frame.pop('data')
+
+        if len(frame.columns) > 1:
+            self.labels = frame.to_dict()
+        else:
+            self.labels = frame['labels']
+
 
 class MultiTaskMeta(type):
     """ Metaclass for Multitask Datasets """
