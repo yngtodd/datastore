@@ -34,6 +34,7 @@ class RandomMultiTaskData(InMemoryDataset, MultiTaskDataset):
         self._create_labels(num_tasks, num_classes, num_samples)
         
     def _create_labels(self, num_tasks, num_classes, num_samples):
+        self.labels = {}
         for i in range(num_tasks):
             self.labels[f'task{i}'] = np.random.randint(
                 num_classes, 
