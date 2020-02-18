@@ -4,7 +4,7 @@ import os
 import sys
 
 try:
-    from setuptools import setup
+    from setuptools import setup, find_packages
 except ImportError:
     from distutils.core import setup
 
@@ -16,14 +16,12 @@ if sys.argv[-1] == 'publish':
 
 setup(
     name='bsec_datastore',
-    version='0.2.1',
+    version='0.2.2',
     description='Data store for Bthe BSEC Pilot 3 program.',
     author='Todd Young',
     author_email='youngmt1@ornl.gov',
     url='https://github.com/yngtodd/datastore',
-    packages=[
-        'datastore',
-    ],
+    packages=find_packages(),
     package_dir={'datastore': 'datastore'},
     include_package_data=True,
     install_requires=[
