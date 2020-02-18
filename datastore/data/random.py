@@ -1,3 +1,4 @@
+import torch
 import numpy as np
 import pandas as pd
 
@@ -30,7 +31,7 @@ class RandomMultiTaskData(InMemoryDataset, MultiTaskDataset):
 
     def __init__(self, num_samples: int, num_tasks: int, num_classes: int, seed: int=13):
         np.random.seed(seed)
-        self.data = np.random.randn(num_samples)
+        self.data = torch.randn([num_samples, 10])
         self._create_labels(num_tasks, num_classes, num_samples)
         
     def _create_labels(self, num_tasks, num_classes, num_samples):
