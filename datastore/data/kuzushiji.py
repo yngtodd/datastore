@@ -1,8 +1,10 @@
 import os
 import numpy as np
-from hammer.data.utils import download_url, makedir_exist_ok
 
 from datastore.api import InMemoryDataset
+from datastore.utils.utils import (
+    download_url, makedir_exist_ok
+)
 
 
 class KuzushijiMNIST(InMemoryDataset):

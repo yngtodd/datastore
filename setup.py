@@ -16,7 +16,7 @@ if sys.argv[-1] == 'publish':
 
 setup(
     name='bsec_datastore',
-    version='0.2.3',
+    version='0.2.4',
     description='Data store for Bthe BSEC Pilot 3 program.',
     author='Todd Young',
     author_email='youngmt1@ornl.gov',
