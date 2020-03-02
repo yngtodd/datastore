@@ -111,7 +111,7 @@ class Uno(InMemoryDataset):
         (document, target) : tuple
            where target is index of the target class.
         """
-        data = self.data[idx]
+        data = self.data['gene_data'][idx]
 
         if self.transform is not None:
             data = self.transform(data)
